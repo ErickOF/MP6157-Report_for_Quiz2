@@ -1,3 +1,7 @@
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+% !TEX root=main.tex
 \documentclass[10pt,paper,trans]{IEEEtran}
 
 \usepackage[utf8]{inputenc}
@@ -18,20 +22,11 @@
 
 \begin{document}
 
-\newcommand{\titlepaper}{Prototype of a Data Acquisition System for Indoor Air Quality Monitoring using Arduino}
+\newcommand{\titlepaper}{Least Squares Filter Applied to a Temperature Control System using Simulink}
 
-\title{\titlepaper}
+\input{sections/0-front-page}
 
-\selectlanguage{english}
-\author{\IEEEauthorblockN{Erick Andrés Obregón Fonseca}
-
-\IEEEauthorblockA{erickof@estudiantec.cr}
-\IEEEauthorblockA{\\Masters in Electronics - Microelectronics Emphasis}
-\IEEEauthorblockA{\\Instituto Tecnológico de Costa Rica}
-}
-
-
-\markboth{Obregón, \titlepaper}
+\markboth{Obregón-Fonseca, \titlepaper}
 {Shell \MakeLowercase{\textit{et al.}}: Bare Demo of IEEEtran.cls for Journals}
 
 
@@ -39,14 +34,12 @@
 
 \renewcommand{\abstractname}{Abstract}
 
-\begin{abstract}
-
-\end{abstract}
+\input{sections/1-abstract}
 
 \renewcommand{\IEEEkeywordsname}{Keywords}
 
 \begin{IEEEkeywords}
-Arduino, Data Acquisition System, Low-Pass Filter, Sensors, SPI
+Control System, Least Squares Filter, Simulink, Temperature
 \end{IEEEkeywords}}
 
 \maketitle
@@ -57,24 +50,12 @@ Arduino, Data Acquisition System, Low-Pass Filter, Sensors, SPI
 
 \selectlanguage{english}
 
-\section{Introduction}
-
-
-\section{State-of-the-art}
-
-
-\section{Methodology}
-
-
-\section{Results and Discussion}
-
-
-\section{Conclusions}
-
-
-
+\input{sections/2-introduction}
+\input{sections/3-methodology}
+\input{sections/4-results-and-discussion}
+\input{sections/5-conclusions}
 
 \bibliographystyle{IEEEtranN}
-\bibliography{bibliography}
+\bibliography{bibliography/bibliography}
 
 \end{document}
