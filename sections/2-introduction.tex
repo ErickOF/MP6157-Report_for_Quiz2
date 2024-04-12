@@ -120,7 +120,23 @@ producing the solution for $\hat{x}$ given by
     \bf{\hat{x}} = (\it{H}_{T} \it{W} \it{H})^{-1} \it{H}_{T} \hat{W} \bf{\tilde{y}}
 \end{equation}
 
-where $\it{W}$ is an $m \times m$ symmetric matrix~\cite{crassidis2004dynamic}.
+where $\it{W}$ is an $m \times m$ symmetric matrix~\cite{crassidis2004dynamic}. \\
+
+When data is not available for batch processing--like in numerous real-world applications--but it is sequentially available, one might find it advantageous to calculate fresh estimates by considering all past measurements. For such cases, the covariance recursion form is used~\cite{crassidis2004dynamic}:
+
+\begin{equation}
+    \hat{x}(k + 1) = \hat{x}(k) + K(k + 1) \left[ \tilde{y}(k + 1) - H(k + 1) \hat{x}(k) \right]
+\end{equation}
+
+where
+
+$$
+K(k + 1) = P(k) H^{t}(k + 1) \left[ H(k + 1) P(k) H^{T}(k + 1) + W_{-1}(k + 1) \right]^{-1}
+$$
+
+$$
+P(k + 1) = \left[ I - K(k + 1) H(k + 1) \right] P(k)
+$$
 
 
 \subsection{System Model}
@@ -168,5 +184,6 @@ where
     \Gamma(k) = \int_{0}^{\Delta t}{b} e^{a \cdot t} dt = \frac{b}{a} \left( e^{a \cdot \Delta t} - 1\right)
 \end{equation}
 
+and $\Delta t$ is the sampling time.
 
 
