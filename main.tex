@@ -5,9 +5,15 @@
 \documentclass[10pt]{IEEEtran}
 
 \usepackage[utf8]{inputenc}
-\usepackage{graphicx}
 \usepackage[english,spanish,activeacute]{babel}
 \usepackage[cmex10]{amsmath}
+\usepackage[numbers]{natbib}
+\usepackage[acronym]{glossaries}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{xurl}
 \usepackage{hyperref}
 \hypersetup{
     colorlinks=true,
@@ -16,10 +22,34 @@
     citecolor=black
 }
 
-\usepackage[numbers]{natbib}
-\usepackage{xurl}
-\usepackage[acronym]{glossaries}
-\usepackage{float}
+
+\definecolor{backcolour}{rgb}{1,1,1}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codeyellow}{rgb}{1,0.7,0}
+\definecolor{keywordscolour}{rgb}{0,0,1}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{keywordscolour},
+    numberstyle=\tiny\color{codegreen},
+    stringstyle=\color{violet},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
 
 %----------------------------------------------------------------------------------------
 % Acronyms

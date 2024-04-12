@@ -126,17 +126,34 @@ When data is not available for batch processing--like in numerous real-world app
 
 \begin{equation}
     \hat{x}(k + 1) = \hat{x}(k) + K(k + 1) \left[ \tilde{y}(k + 1) - H(k + 1) \hat{x}(k) \right]
+    \label{eq:lse_recursion}
 \end{equation}
 
 where
 
-$$
-K(k + 1) = P(k) H^{t}(k + 1) \left[ H(k + 1) P(k) H^{T}(k + 1) + W_{-1}(k + 1) \right]^{-1}
-$$
+\begin{equation}
+    \begin{split}
+        K(k + 1) = P(k) H^{t}(k + 1) [ H(k + 1) P(k) H^{T}(k + 1) +\\ W_{-1}(k + 1) ]^{-1}
+    \end{split}
+    \label{eq:lse_recursion_K}
+\end{equation}
 
-$$
-P(k + 1) = \left[ I - K(k + 1) H(k + 1) \right] P(k)
-$$
+\begin{equation}
+    P(k + 1) = \left[ I - K(k + 1) H(k + 1) \right] P(k)
+    \label{eq:lse_recursion_P}
+\end{equation}
+
+with initial values of
+
+\begin{equation}
+    P(0) = \left[ \frac{1}{\alpha^{2}} I + H_{T}(0) W(0) H(0) \right]^{-1}
+    \label{eq:lse_recursion_P0}
+\end{equation}
+
+\begin{equation}
+    \hat{x}(0) = P(0) \left[ \frac{1}{\alpha} \beta + H_{T}(0) W(0) \hat{y}(0) \right]
+    \label{eq:lse_recursion_x0}
+\end{equation}
 
 
 \subsection{System Model}
@@ -172,18 +189,19 @@ For a first-order system with a continuous-time transfer function, the discrete-
 
 \begin{equation}
     y(k + 1) = \phi(k) y(k) + \Gamma(k) u(k)
+    \label{eq:yk1}
 \end{equation}
 
 where
 
 \begin{equation}
     \phi(k) = e^{a \cdot \Delta t}
+    \label{eq:phi}
 \end{equation}
 
 \begin{equation}
     \Gamma(k) = \int_{0}^{\Delta t}{b} e^{a \cdot t} dt = \frac{b}{a} \left( e^{a \cdot \Delta t} - 1\right)
+    \label{eq:gamma}
 \end{equation}
 
 and $\Delta t$ is the sampling time.
-
-
