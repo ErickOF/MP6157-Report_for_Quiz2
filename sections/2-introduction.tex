@@ -107,9 +107,66 @@ By substituting Eq~\ref{eq:lse_w_rerror} $e$ into the Eq~\ref{eq:lse}, applying 
 
 
 \subsubsection{Weighted Least Squares}
+In cases where measurements are taken with varying degrees of precision, the approach of assigning equal weight appears to be logically flawed. To incorporate proper weighting, a least squares criterion of the form is established:
 
+\begin{equation}
+    J = \frac{1}{2} e^{T} \it{W} e
+    \label{eq:wlse}
+\end{equation}
+
+producing the solution for $\hat{x}$ given by
+
+\begin{equation}
+    \bf{\hat{x}} = (\it{H}_{T} \it{W} \it{H})^{-1} \it{H}_{T} \hat{W} \bf{\tilde{y}}
+\end{equation}
+
+where $\it{W}$ is an $m \times m$ symmetric matrix~\cite{crassidis2004dynamic}.
 
 
 \subsection{System Model}
+Given a basic heating house system that considers the outdoor and indoor temperature, the dynamics of the systems are described by a first-order differential equation with a time constant $\tau$~\cite{franklin1994dynsys}:
+
+\begin{equation}
+    \dot{T}(t) = \frac{1}{\tau} \left( T_{ambient} - T(t) \right) + \frac{K_{p}}{\tau} \cdot u(t)
+\end{equation}
+
+where
+
+\begin{itemize}
+    \item $\tau$ is the time constant of the system.
+
+    \item $T_{ambient}$ is the temperature outside the house.
+
+    \item $T(t)$ is the temperature in the house at time $t$.
+
+    \item $K_{p}$ is the proportional gain or the heat rating of the system.
+
+    \item $u(t)$ is the swith, $= 1$ if the system is on and $= 0$ if the system is off. \\
+\end{itemize}
+
+In the continuous-time state-space representation of a first-order system, the dynamics are described by the following first-order differential equation~\cite{ayomoh2012}:
+
+\begin{equation}
+    \dot{x} = a \cdot x(t) + b \cdot u(t)
+\end{equation}
+
+meaning that $a = 1/\tau$ and $b = K_{p}/\tau$. \\
+
+For a first-order system with a continuous-time transfer function, the discrete-time representation can be obtained using methods such as Euler's method~\cite{griffiths2010}, backward difference~\cite{suleiman2011}, or Tustin's method~\cite{phillips1985}. The solution using Euler's methods is:
+
+\begin{equation}
+    y(k + 1) = \phi(k) y(k) + \Gamma(k) u(k)
+\end{equation}
+
+where
+
+\begin{equation}
+    \phi(k) = e^{a \cdot \Delta t}
+\end{equation}
+
+\begin{equation}
+    \Gamma(k) = \int_{0}^{\Delta t}{b} e^{a \cdot t} dt = \frac{b}{a} \left( e^{a \cdot \Delta t} - 1\right)
+\end{equation}
+
 
 
