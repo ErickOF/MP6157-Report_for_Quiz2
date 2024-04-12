@@ -1,10 +1,115 @@
 \section{Introduction}
-Heating and temperature control systems have played a crusial role since the end of the 19th century. This kind of system has different applications in day-to-day task and industrial applications.\\
+
+\subsection{Heating and Temperature Control}
+Heating and temperature control systems have played a crucial role since the end of the 19th century. These systems have a wide range of applications from day-to-day tasks to industrial applications. \\
+
+In 1895, Johnson made a significant breakthrough in temperature control with an automatic multi-zone temperature control system, designed to regulate the temperature in individual rooms or apartments~\cite{us542733s}. Subsequentially, a variety of other applications have emerged. In the field of biotechnology, applications like~\acrfull{pcr}--such~\cite{MULLIS1987335, saiki1988, Bartlett2003, C6LC00984K, maltezos2010, mcknight2000, B208405H, hua2010multiplexed, mahjoob2008rapid, dinca2009fast, lien2009microfluidic, qiu2010large, hsieh2008enhancement, shen2005microchip, wang2009miniaturized}--and~\acrfull{tgf}~\cite{matsui2007temperature, ross2002microfluidic} for Electrophoresis requires tight temperature control~\cite{diagnostics3010033}. In biological science, precise temperature control is crucial, such as maintaining specific temperatures for cell viability or for~\acrshort{pcr} temperature cycling~\cite{diagnostics3010033, hung2005microfluid}. Also, in the food supply chain is important to ensure product quality and customer satisfaction, in transportation modes like sea, land, and railway, and in the logistic clusterization process can significantly reduce costs~\cite{baskutis2015temp}. On the other hand, in the automotive industry, thermal management in vehicle electrification enhances vehicle efficiency and battery performance~\cite{casals2016sustainability, previati2022thermal} and in specific areas like thermal management of lithium-ion batteries~\cite{karimi2013thermal}, electric machines ~\cite{yang2017thermal}, and novel thermal management systems for batteries~\cite{al2018review}. \\
+
+In critical applications such as mentioned before, accurate temperature monitoring is imperative. Consequently, the utilization of a least-squares filter to effectively mitigate noise in the target variable is explored.
 
 
-In 1895, Johnson contributed to temperature control with an automatic multi-zone temperature control system~\cite{us542733s}.
+\subsection{Least-Squares Filter}
+Least-squares estimation theory was introduced by Gauss and further developed by Kalman, focusing on minimizing the sum of the squares of the difference between observed and estimated values~\cite{sorenson1970lse}. This methodology finds applications across a broad spectrum of categories, such as data curve fitting, parameter identification, and the realization of system models~\cite{crassidis2004dynamic}. This technique is versatile, with applications spanning various domains. Examples include calculating the damping properties of a fluid-filled damper based on temperature, identifying aircraft dynamic and static aerodynamic coefficients, determining orbit and attitude, locating position using triangulation, identifying modes of vibratory systems, and modern control strategies like some adaptative controllers where least-squares method is used to refine model parameters within the control system~\cite{crassidis2004dynamic}. \\
+
+Assuming a set or a batch of measured values, $\tilde{y}_{j}$, of a process $y(t)$, taken at known discrete instants of time $t_{j}$:
+
+\begin{equation}
+    \left\{\tilde{y}_{1}, t_{1}; \tilde{y}_{2}, t_{2}; \ldots; \tilde{y}_{m}, t_{m}; \right\}
+\end{equation}
+
+and a proposed mathematical model of the form
+
+\begin{equation}
+    y(t) = \sum_{i = 1}^{n}{x_{i} h_{i}(t)},~~~m \geq n
+\end{equation}
+
+where
+
+\begin{equation}
+    h_{i}(t) \in \left\{ h_{1}(t), h_{2}(t), \ldots, h_{n}(t) \right\}
+\end{equation}
+
+are a set of independently specified basis functions where the measurements $\tilde{y}_{j}$ and the estimated output $\hat{y}_{j}$ can be related to the true and the estimated x-values leading to the Eq~\ref{eq:lse_w_error} and~\ref{eq:lse_wo_error} ~\cite{crassidis2004dynamic}:
+
+\begin{equation}
+    \tilde{y}_{j} \equiv \tilde{y}(t_{j}) = \sum_{i = 1}^{n}{x_{i} h_{i}(t_{j}) + v_{j}},~~~j = 1, 2, \ldots, m
+    \label{eq:lse_w_error}
+\end{equation}
+
+\begin{equation}
+    \hat{y}_{j} \equiv \hat{y}(t_{j}) = \sum_{i = 1}^{n}{\hat{x}_{i} h_{i}(t_{j})},~~~j = 1, 2, \ldots, m
+    \label{eq:lse_wo_error}
+\end{equation}
+
+where $v_{j}$ is the measurement error. This leads to the following identity:
+
+\begin{equation}
+    \tilde{y}_{j} = \sum_{i = 1}^{n}{\hat{x}_{i} h_{i}(t_{j}) + e_{j}},~~~j = 1, 2, \ldots, m
+    \label{eq:lse_w_rerror}
+\end{equation}
+
+where residual error $e_{j}$ is defined by
+
+\begin{equation}
+    e_{j} \equiv \tilde{y}_{j} - \hat{y}_{j}
+    \label{eq:residual_error}
+\end{equation}
+
+and this can be rewritten in compact matrix form as:
+
+\begin{equation}
+    \bf{\tilde{y}} = \bf{\it{H}} \bf{\hat{x}} + \bf{e}
+\end{equation}
+
+where ~\cite{crassidis2004dynamic} \\
+
+$\bf{\tilde{y}} = \left[ \tilde{y}_{1} ~ \tilde{y}_{2} ~ \cdots ~ \tilde{y}_{m} \right] = $ measured y-values \\
+
+$\bf{e} = \left[ e_{1} ~ e_{2} ~ \cdots ~ e_{m} \right] = $ resisdual errors \\
+
+$\bf{\hat{x}} = \left[ \hat{x}_{1} ~ \hat{x}_{2} ~ \cdots ~ \hat{x}_{m} \right] = $ estimated x-values \\
+
+In similar way, Eq~\ref{eq:lse_w_error_matrix} and \ref{eq:lse_wo_error_matrix} can be represented using its compact matrix form as~\cite{crassidis2004dynamic}:
+
+\begin{equation}
+    \bf{\tilde{y}} = \bf{\it{H}} \bf{x} + \bf{v}
+    \label{eq:lse_w_error_matrix}
+\end{equation}
+
+\begin{equation}
+    \bf{\hat{y}} = \bf{\it{H}} \bf{\hat{x}}
+    \label{eq:lse_wo_error_matrix}
+\end{equation}
+
+where \\
+
+$\bf{x} = \left[ x_{1} ~ x_{2} ~ \cdots ~ x_{m} \right] = $ true x-values \\
+
+$\bf{v} = \left[ v_{1} ~ v_{2} ~ \cdots ~ v_{m} \right] = $ measurements errors \\
+
+$\bf{\hat{y}} = \left[ \hat{y}_{1} ~ \hat{y}_{2} ~ \cdots ~ \hat{y}_{m} \right] = $ estimated y-values \\
+
+$\bf{\tilde{y}} = \left[ \tilde{y}_{1} ~ \tilde{y}_{2} ~ \cdots ~ \tilde{y}_{m} \right] = $ measured y-values \\
+
+\subsubsection{Linear Least Squares}
+The least squares principle selects particular $\hat{x}$ that minimizes the sum square of the residual errors as an optimum choice for the unknown parameters, given by~\cite{crassidis2004dynamic}:
+
+\begin{equation}
+    J = \frac{1}{2} e^{T} e
+    \label{eq:lse}
+\end{equation}
+
+By substituting Eq~\ref{eq:lse_w_rerror} $e$ into the Eq~\ref{eq:lse}, applying the gradient of $\nabla_{\hat{x}} J$ and equaling to zero, the explicit solution for the optimal estimate is obtained:
+
+\begin{equation}
+    \bf{\hat{x}} = (\it{H}_{T} \it{H})^{-1} \it{H}_{T} \bf{\tilde{y}}
+\end{equation}
+
+
+\subsubsection{Weighted Least Squares}
 
 
 
+\subsection{System Model}
 
 
