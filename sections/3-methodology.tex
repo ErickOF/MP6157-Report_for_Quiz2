@@ -2,13 +2,13 @@
 The simulation is conducted through Simulink, as depicted in Fig~\ref{fig:heat_system_diagram} the heating or control temperature system. This system comprises four primary components: the heating system, the $P_{0}$ computation, the $x_{0}$ calculation, and the least-squares filter implemented as a Matlab function.
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=1\linewidth]{figures/heat_system_diagram.png}
-    \caption{Diagram representing the complete system to be simulated}
-    \label{fig:heat_system_diagram}
+\centering
+\includegraphics[width=1\linewidth]{figures/heat_system_diagram.png}
+\caption{Diagram representing the complete system to be simulated}
+~\label{fig:heat_system_diagram}
 \end{figure}
 
-The heating system is responsible for replicating the temperature variation, using an ambient temperature of 25$^{\circ}$C as a reference. Initially, the simulation begins with a transition from 0$^{\circ}$C to 25$^{\circ}$C. Subsequently, the heating system activates, initiating a temperature alteration over a 150-second interval. Following this, the system deactivates and the simulation runs for an additional 150-second period. \\
+The heating system is responsible for replicating the temperature variation, using an ambient temperature of 25$^{\circ}$C as a reference. There are two tested scenarios. In the first one, the simulation begins with a transition from 0$^{\circ}$C to 25$^{\circ}$C. Subsequently, the heating system activates, initiating a temperature alteration over a 150-second interval. Following this, the system deactivates and the simulation runs for an additional 150-second period. In the second scenario, there is a square input function that has a period of 20s and an amplitud of 100. The simulation runs for 400 seconds in order to have more data and see how the system improves over the time. \\
 
 The component that computes $P_{0}$ uses the Eq~\ref{eq:lse_recursion_P0}. The following Matlab code shows its implementation:
 
@@ -63,6 +63,6 @@ The system predicts the parameters $\phi$ and $\Gamma$ which can be computed usi
 \end{equation}
 
 \begin{equation}
-    \Gamma(k) = \frac{0.025}{-0.05} \left( e^{-0.05 \cdot 0.1} - 1\right) = 0.0025
+    \Gamma(k) = \frac{0.025}{-0.05} \left( e^{-0.05 \cdot 0.1} - 1\right) = 0.002494
 \end{equation}
 

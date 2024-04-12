@@ -3,7 +3,7 @@
 \subsection{Heating and Temperature Control}
 Heating and temperature control systems have played a crucial role since the end of the 19th century. These systems have a wide range of applications from day-to-day tasks to industrial applications. \\
 
-In 1895, Johnson made a significant breakthrough in temperature control with an automatic multi-zone temperature control system, designed to regulate the temperature in individual rooms or apartments~\cite{us542733s}. Subsequentially, a variety of other applications have emerged. In the field of biotechnology, applications like~\acrfull{pcr}--such~\cite{MULLIS1987335, saiki1988, Bartlett2003, C6LC00984K, maltezos2010, mcknight2000, B208405H, hua2010multiplexed, mahjoob2008rapid, dinca2009fast, lien2009microfluidic, qiu2010large, hsieh2008enhancement, shen2005microchip, wang2009miniaturized}--and~\acrfull{tgf}~\cite{matsui2007temperature, ross2002microfluidic} for Electrophoresis requires tight temperature control~\cite{diagnostics3010033}. In biological science, precise temperature control is crucial, such as maintaining specific temperatures for cell viability or for~\acrshort{pcr} temperature cycling~\cite{diagnostics3010033, hung2005microfluid}. Also, in the food supply chain is important to ensure product quality and customer satisfaction, in transportation modes like sea, land, and railway, and in the logistic clusterization process can significantly reduce costs~\cite{baskutis2015temp}. On the other hand, in the automotive industry, thermal management in vehicle electrification enhances vehicle efficiency and battery performance~\cite{casals2016sustainability, previati2022thermal} and in specific areas like thermal management of lithium-ion batteries~\cite{karimi2013thermal}, electric machines ~\cite{yang2017thermal}, and novel thermal management systems for batteries~\cite{al2018review}. \\
+In 1895, Johnson made a significant breakthrough in temperature control with an automatic multi-zone temperature control system, designed to regulate the temperature in individual rooms or apartments~\cite{us542733s}. Subsequentially, a variety of other applications have emerged. In the field of biotechnology, applications like~\acrfull{pcr}--such~\cite{MULLIS1987335, saiki1988, Bartlett2003, C6LC00984K, maltezos2010, mcknight2000, B208405H, hua2010multiplexed, mahjoob2008rapid, dinca2009fast, lien2009microfluidic, qiu2010large, hsieh2008enhancement, shen2005microchip, wang2009miniaturized}--and~\acrfull{tgf}~\cite{matsui2007temperature, ross2002microfluidic} for Electrophoresis requires tight temperature control~\cite{diagnostics3010033}. In biological science, precise temperature control is crucial, such as maintaining specific temperatures for cell viability or for~\acrshort{pcr} temperature cycling~\cite{diagnostics3010033, hung2005microfluid}. Also, in the food supply chain is important to ensure product quality and customer satisfaction, in transportation modes like sea, land, and railway, and in the logistic clusterization process can significantly reduce costs~\cite{baskutis2015temp}. On the other hand, in the automotive industry, thermal management in vehicle electrification enhances vehicle efficiency and battery performance~\cite{casals2016sustainability, previati2022thermal} and in specific areas like thermal management of lithium-ion batteries~\cite{karimi2013thermal}, electric machines~\cite{yang2017thermal}, and novel thermal management systems for batteries~\cite{al2018review}. \\
 
 In critical applications such as mentioned before, accurate temperature monitoring is imperative. Consequently, the utilization of a least-squares filter to effectively mitigate noise in the target variable is explored.
 
@@ -29,7 +29,7 @@ where
     h_{i}(t) \in \left\{ h_{1}(t), h_{2}(t), \ldots, h_{n}(t) \right\}
 \end{equation}
 
-are a set of independently specified basis functions where the measurements $\tilde{y}_{j}$ and the estimated output $\hat{y}_{j}$ can be related to the true and the estimated x-values leading to the Eq~\ref{eq:lse_w_error} and~\ref{eq:lse_wo_error} ~\cite{crassidis2004dynamic}:
+are a set of independently specified basis functions where the measurements $\tilde{y}_{j}$ and the estimated output $\hat{y}_{j}$ can be related to the true and the estimated x-values leading to the Eq~\ref{eq:lse_w_error} and~\ref{eq:lse_wo_error}~\cite{crassidis2004dynamic}:
 
 \begin{equation}
     \tilde{y}_{j} \equiv \tilde{y}(t_{j}) = \sum_{i = 1}^{n}{x_{i} h_{i}(t_{j}) + v_{j}},~~~j = 1, 2, \ldots, m
@@ -69,7 +69,7 @@ $\bf{e} = \left[ e_{1} ~ e_{2} ~ \cdots ~ e_{m} \right] = $ resisdual errors \\
 
 $\bf{\hat{x}} = \left[ \hat{x}_{1} ~ \hat{x}_{2} ~ \cdots ~ \hat{x}_{m} \right] = $ estimated x-values \\
 
-In similar way, Eq~\ref{eq:lse_w_error_matrix} and \ref{eq:lse_wo_error_matrix} can be represented using its compact matrix form as~\cite{crassidis2004dynamic}:
+In similar way, Eq~\ref{eq:lse_w_error_matrix} and~\ref{eq:lse_wo_error_matrix} can be represented using its compact matrix form as~\cite{crassidis2004dynamic}:
 
 \begin{equation}
     \bf{\tilde{y}} = \bf{\it{H}} \bf{x} + \bf{v}
@@ -102,7 +102,7 @@ The least squares principle selects particular $\hat{x}$ that minimizes the sum 
 By substituting Eq~\ref{eq:lse_w_rerror} $e$ into the Eq~\ref{eq:lse}, applying the gradient of $\nabla_{\hat{x}} J$ and equaling to zero, the explicit solution for the optimal estimate is obtained:
 
 \begin{equation}
-    \bf{\hat{x}} = (\it{H}_{T} \it{H})^{-1} \it{H}_{T} \bf{\tilde{y}}
+    \bf{\hat{x}} = \left(\it{H}_{T} \it{H}\right)^{-1} \it{H}_{T} \bf{\tilde{y}}
 \end{equation}
 
 
