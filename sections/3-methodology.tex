@@ -45,7 +45,7 @@ and the code used is shown, as well as the computation of the parameters $a$, $b
 where:
 
 \begin{equation}
-    a = \frac{-1}{\tau} = \frac{-1}{20} = 0.05
+    a = \frac{-1}{\tau} = \frac{-1}{20} = -0.05
 \end{equation}
 
 \begin{equation}
@@ -59,10 +59,10 @@ where:
 The system predicts the parameters $\phi$ and $\Gamma$ which can be computed using the Eq~\ref{eq:phi} and~\ref{eq:gamma}:
 
 \begin{equation}
-    \phi(k) = e^{a \cdot \Delta t} = e^{0.05 \cdot 0.1} = 1.0050
+    \phi(k) = e^{a \cdot \Delta t} = e^{-0.05 \cdot 0.1} = 0.9950
 \end{equation}
 
 \begin{equation}
-    \Gamma(k) = \frac{0.025}{0.05} \left( e^{0.05 \cdot 0.1} - 1\right) = 0.0025
+    \Gamma(k) = \frac{0.025}{-0.05} \left( e^{-0.05 \cdot 0.1} - 1\right) = 0.0025
 \end{equation}
 
