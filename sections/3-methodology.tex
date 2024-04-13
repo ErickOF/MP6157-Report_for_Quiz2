@@ -8,7 +8,7 @@ The simulation is conducted through Simulink, as depicted in Fig~\ref{fig:heat_s
 ~\label{fig:heat_system_diagram}
 \end{figure}
 
-The heating system is responsible for replicating the temperature variation, using an ambient temperature of 25$^{\circ}$C as a reference. There are two tested scenarios. In the first one, the simulation begins with a transition from 0$^{\circ}$C to 25$^{\circ}$C. Subsequently, the heating system activates, initiating a temperature alteration over a 150-second interval. Following this, the system deactivates and the simulation runs for an additional 150-second period. In the second scenario, there is a square input function that has a period of 20s and an amplitud of 100. The simulation runs for 400 seconds in order to have more data and see how the system improves over the time. \\
+The heating system is responsible for replicating the temperature variation, using an ambient temperature of 25$^{\circ}$C as a reference. There are two tested scenarios. In the first one, the simulation begins with a transition from 0$^{\circ}$C to 25$^{\circ}$C. Subsequently, the heating system activates, initiating a temperature alteration over a 150-second interval. Following this, the system deactivates and the simulation runs for an additional 150-second period. In the second scenario, there is a square input function that has a period of 20s and an amplitude of 100. The simulation runs for 400 seconds in order to have more data and see how the system improves over time. \\
 
 The component that computes $P_{0}$ uses the Eq~\ref{eq:lse_recursion_P0}. The following Matlab code shows its implementation:
 
